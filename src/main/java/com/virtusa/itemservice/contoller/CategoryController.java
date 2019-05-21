@@ -24,32 +24,32 @@ public class CategoryController {
 	CategoryService catService;
 	
 	@PostMapping("/category")
-	public Category saveCategory(@RequestBody Category cat) {
+	public Category save(@RequestBody Category category) {
 		
-		return catService.save(cat);
+		return catService.save(category);
 	}
 	
 	
 	
 	@GetMapping("/category")
-	public List<Category> fetchAllCategories() {
+	public List<Category> fetchAll() {
 		return catService.fetchAll();
 	}
 	
 	
 	
 	@GetMapping("/category/{id}")
-	public Optional<Category> fetchCategory(@PathVariable Integer id){
+	public Optional<Category> fetch(@PathVariable Integer id){
 		
 		return catService.fetchById(id);
 	}
 	
 	
 	@PutMapping("/category/{id}")
-	public Category updateCategory(@RequestBody Category cat,@PathVariable Integer id) {
+	public Category updateCategory(@RequestBody Category category,@PathVariable Integer id) {
 		
 		
-		return catService.update(cat, id);
+		return catService.update(category, id);
 		
 	}
 	

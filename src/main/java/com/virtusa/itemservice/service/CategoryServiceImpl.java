@@ -7,44 +7,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.virtusa.itemservice.modal.Category;
-import com.virtusa.itemservice.repository.CategoryServiceRepository;
+import com.virtusa.itemservice.repository.CategoryRepository;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
 	
 	@Autowired
-	CategoryServiceRepository catRepo;
+	CategoryRepository categoryRepo;
 
 	@Override
 	public Category save(Category cat) {
 		
-		return catRepo.save(cat);
+		return categoryRepo.save(cat);
 	}
 
 	@Override
 	public List<Category> fetchAll() {
 		
-		return catRepo.findAll();
+		return categoryRepo.findAll();
 	}
 
 	@Override
 	public Optional<Category> fetchById(Integer id) {
 		
-		return catRepo.findById(id);
+		return categoryRepo.findById(id);
 	}
 
 	@Override
 	public Category update(Category cat, Integer id) {
 		
-		return catRepo.findById(id).map(category->
+		return categoryRepo.findById(id).map(category->
 		{
 			category.setName(cat.getName());
 			category.setType(cat.getType());
-			return catRepo.save(category);
+			return categoryRepo.save(category);
 		}).orElseGet( ()->{
 			
 			cat.setId(id);
-			return catRepo.save(cat);
+			return categoryRepo.save(cat);
 				
 			
 		});
@@ -53,7 +53,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public void delete(Integer id) {
 	
-		catRepo.deleteById(id);
+		categoryRepo.deleteById(id);
 		
 		
 	}
