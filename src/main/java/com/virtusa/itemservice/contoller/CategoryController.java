@@ -41,7 +41,7 @@ public class CategoryController {
 	@GetMapping("/category/{id}")
 	public Optional<Category> fetchCategory(@PathVariable Integer id){
 		
-		return catService.fetchCategory(id);
+		return catService.fetchById(id);
 	}
 	
 	
@@ -49,7 +49,7 @@ public class CategoryController {
 	public Category updateCategory(@RequestBody Category cat,@PathVariable Integer id) {
 		
 		
-		return catService.updateCategory(cat, id);
+		return catService.update(cat, id);
 		
 	}
 	
@@ -57,7 +57,7 @@ public class CategoryController {
 	@DeleteMapping("/category/{id}")
 	public void deleteCategory(@PathVariable Integer id)
 	{
-		catService.deleteCategory(id);
+		catService.delete(id);
 	}
 
 }

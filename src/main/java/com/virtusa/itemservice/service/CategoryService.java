@@ -10,7 +10,7 @@ public interface CategoryService {
 	
 	Category save(Category category);
 	List<Category> fetchAll();
-	Optional<Category> fetchCategory(Integer id);
-	Category updateCategory(Category cat, Integer id);
-	void deleteCategory(Integer id);
+	Optional<Category> fetchById(Integer id);
+	Category update(Category cat, Integer id);
+	void delete(Integer id);
 }

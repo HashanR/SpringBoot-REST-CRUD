@@ -28,13 +28,13 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public Optional<Category> fetchCategory(Integer id) {
+	public Optional<Category> fetchById(Integer id) {
 		
 		return catRepo.findById(id);
 	}
 
 	@Override
-	public Category updateCategory(Category cat, Integer id) {
+	public Category update(Category cat, Integer id) {
 		
 		return catRepo.findById(id).map(category->
 		{
@@ -51,7 +51,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public void deleteCategory(Integer id) {
+	public void delete(Integer id) {
 	
 		catRepo.deleteById(id);
 		
